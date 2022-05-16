@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/kpis/{kpiname}": {
+      "name": "/kpis/{kpiname}",
+      "lambdaFunction": "KpiHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

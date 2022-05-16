@@ -1,8 +1,14 @@
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Amplify from "aws-amplify";
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import awsExports from "./aws-exports";
 import reportWebVitals from './reportWebVitals';
+
+Amplify.configure(awsExports);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
