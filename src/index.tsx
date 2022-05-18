@@ -1,56 +1,22 @@
-/**
- * index.tsx
- *
- * This is the entry file for the application, only setup and boilerplate
- * code.
- */
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
-// Use consistent styling
-import 'sanitize.css/sanitize.css';
-// Initialize languages
-import './locales/i18n';
-
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-
-import { Amplify } from 'aws-amplify';
-// Import root app
-import { App } from 'app';
+import App from './App';
+import ReactDOM from 'react-dom';
+import 'src/utils/chart';
+import * as serviceWorker from './serviceWorker';
 import { HelmetProvider } from 'react-helmet-async';
-import { Provider } from 'react-redux';
-import awsExports from './aws-exports';
-import { configureAppStore } from 'store/configureStore';
-import reportWebVitals from 'reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
-Amplify.configure(awsExports);
-
-
-
-const store = configureAppStore();
-const MOUNT_NODE = document.getElementById('root') as HTMLElement;
+import 'nprogress/nprogress.css';
+import { SidebarProvider } from './contexts/SidebarContext';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
+  <HelmetProvider>
+    <SidebarProvider>
+      <BrowserRouter>
         <App />
-      </React.StrictMode>
-    </HelmetProvider>
-  </Provider>,
-  MOUNT_NODE,
+      </BrowserRouter>
+    </SidebarProvider>
+  </HelmetProvider>,
+  document.getElementById('root')
 );
 
-// Hot reloadable translation json files
-if (module.hot) {
-  module.hot.accept(['./locales/i18n'], () => {
-    // No need to render the App again because i18next works with the hooks
-  });
-}
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+serviceWorker.unregister();
