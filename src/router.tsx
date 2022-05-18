@@ -1,10 +1,9 @@
 import { Suspense, lazy } from 'react';
+
+import BaseLayout from 'src/layouts/BaseLayout';
 import { Navigate } from 'react-router-dom';
 import { RouteObject } from 'react-router';
-
 import SidebarLayout from 'src/layouts/SidebarLayout';
-import BaseLayout from 'src/layouts/BaseLayout';
-
 import SuspenseLoader from 'src/components/SuspenseLoader';
 
 const Loader = (Component) => (props) => (
@@ -20,6 +19,7 @@ const Overview = Loader(lazy(() => import('src/content/overview')));
 // Dashboards
 
 const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
+const Kpi = Loader(lazy(() => import('src/content/dashboards/KPI')));
 
 // Applications
 
@@ -112,10 +112,15 @@ const routes: RouteObject[] = [
         path: '',
         element: (
           <Navigate
-            to="/dashboards/crypto"
+            to="/dashboards/kpi"
             replace
           />
         )
+      },
+      
+      {
+        path: 'kpi',
+        element: <Kpi />
       },
       {
         path: 'crypto',

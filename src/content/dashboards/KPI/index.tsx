@@ -1,13 +1,9 @@
 import { Container, Grid } from '@mui/material';
 
-import AccountBalance from './AccountBalance';
-import AccountSecurity from './AccountSecurity';
 import Footer from 'src/components/Footer';
 import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
-import Wallets from './Wallets';
-import WatchList from './WatchList';
 
 function DashboardCrypto() {
   return (
@@ -26,18 +22,6 @@ function DashboardCrypto() {
           alignItems="stretch"
           spacing={3}
         >
-          <Grid item xs={12}>
-            <AccountBalance />
-          </Grid>
-          <Grid item lg={8} xs={12}>
-            <Wallets />
-          </Grid>
-          <Grid item lg={4} xs={12}>
-            <AccountSecurity />
-          </Grid>
-          <Grid item xs={12}>
-            <WatchList />
-          </Grid>
         </Grid>
       </Container>
       <Footer />

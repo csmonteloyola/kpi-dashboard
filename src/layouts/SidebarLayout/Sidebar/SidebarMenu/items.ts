@@ -1,20 +1,7 @@
-import { ReactNode } from 'react';
-
-import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
-import BrightnessLowTwoToneIcon from '@mui/icons-material/BrightnessLowTwoTone';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
-import TableChartTwoToneIcon from '@mui/icons-material/TableChartTwoTone';
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import BallotTwoToneIcon from '@mui/icons-material/BallotTwoTone';
-import BeachAccessTwoToneIcon from '@mui/icons-material/BeachAccessTwoTone';
-import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
-import HowToVoteTwoToneIcon from '@mui/icons-material/HowToVoteTwoTone';
-import LocalPharmacyTwoToneIcon from '@mui/icons-material/LocalPharmacyTwoTone';
-import RedeemTwoToneIcon from '@mui/icons-material/RedeemTwoTone';
-import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
-import TrafficTwoToneIcon from '@mui/icons-material/TrafficTwoTone';
-import VerifiedUserTwoToneIcon from '@mui/icons-material/VerifiedUserTwoTone';
+import { ReactNode } from 'react';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export interface MenuItem {
   link?: string;
@@ -34,27 +21,23 @@ const menuItems: MenuItems[] = [
     heading: '',
     items: [
       {
-        name: 'Overview',
-        link: '/overview',
-        icon: DesignServicesTwoToneIcon
-      }
-    ]
-  },
-  {
-    heading: 'Dashboards',
-    items: [
-      {
-        name: 'Crypto',
-        link: '/dashboards/crypto',
-        icon: BrightnessLowTwoToneIcon
-      },
-      {
-        name: 'Messenger',
+        name: 'Dashboard',
         icon: MmsTwoToneIcon,
-        link: '/dashboards/messenger'
+        link: '/dashboards/kpi'
+      },
+      {
+        name: 'Metrics',
+        icon: AssessmentIcon,
+        link: '/dashboards/metrics'
+      },
+      {
+        name: 'Settings',
+        icon: SettingsIcon,
+        link: '/dashboards/settings'
       },
     ]
   },
+  /* ,
   {
     heading: 'Management',
     items: [
@@ -157,7 +140,7 @@ const menuItems: MenuItems[] = [
         ]
       }
     ]
-  }
+  } */
 ];
 
 export default menuItems;
