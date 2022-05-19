@@ -96,6 +96,7 @@ declare module '@mui/material/styles' {
       borderRadius: string;
       borderRadiusLg: string;
       borderRadiusXl: string;
+      background: string;
     };
     sidebar: {
       background: React.CSSProperties['color'];
@@ -209,10 +210,11 @@ declare module '@mui/material/styles' {
       borderRadius: string;
       borderRadiusLg: string;
       borderRadiusXl: string;
+      background: string;
     };
     sidebar: {
       background: React.CSSProperties['color'];
-      boxShadow: React.CSSProperties['color'];
+      /* boxShadow: React.CSSProperties['color']; */
       width: string;
       textColor: React.CSSProperties['color'];
       dividerBg: React.CSSProperties['color'];

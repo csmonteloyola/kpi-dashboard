@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 
 const LogoWrapper = styled(Link)(
   ({ theme }) => `
-        color: ${theme.palette.text.primary};
+        color: ${theme.palette.grey[200]};
         padding: ${theme.spacing(0, 1, 0, 0)};
         display: flex;
         text-decoration: none;
@@ -31,7 +31,7 @@ function Logo() {
 
 
   return (
-    <LogoWrapper to="/overview">
+    <LogoWrapper to="/kpi">
       <Hidden smDown>
         <LogoTextWrapper>
           <LogoText>CAM KPI Dashboard</LogoText>

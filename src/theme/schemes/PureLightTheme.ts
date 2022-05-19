@@ -11,7 +11,8 @@ const themeColors = {
   info: '#33C2FF',
   black: '#223354',
   white: '#ffffff',
-  primaryAlt: '#000C57'
+  primaryAlt: '#000C57',
+  transparent: 'transparent'
 };
 
 const colors = {
@@ -25,7 +26,7 @@ const colors = {
     pink1: 'linear-gradient(135deg, #F6CEEC 0%, #D939CD 100%)',
     pink2: 'linear-gradient(135deg, #F761A1 0%, #8C1BAB 100%)',
     green1: 'linear-gradient(135deg, #FFF720 0%, #3CD500 100%)',
-    black1: 'linear-gradient(100.66deg, #434343 6.56%, #000000 93.57%)'
+    black1: 'linear-gradient(100.66deg, #434343 6.56%, #000000 93.57%)',
   },
   shadows: {
     success:
@@ -60,6 +61,9 @@ const colors = {
       menuItemIconColor: lighten(themeColors.secondary, 0.3),
       menuItemIconColorActive: themeColors.primary,
       menuItemHeadingColor: darken(themeColors.secondary, 0.3),
+    },
+    section:{
+      background: 'rgba(255,255,255,.1)'
     }
   },
   alpha: {
@@ -216,7 +220,8 @@ export const PureLightTheme = createTheme({
     borderRadiusSm: '4px',
     borderRadius: '6px',
     borderRadiusLg: '10px',
-    borderRadiusXl: '18px'
+    borderRadiusXl: '18px',
+    background: colors.layout.section.background
   },
   sidebar: {
     background: colors.layout.sidebar.background,
@@ -229,8 +234,8 @@ export const PureLightTheme = createTheme({
     menuItemIconColor: colors.layout.sidebar.menuItemIconColor,
     menuItemIconColorActive: colors.layout.sidebar.menuItemIconColorActive,
     menuItemHeadingColor: colors.layout.sidebar.menuItemHeadingColor,
-    boxShadow:
-      '2px 0 3px rgba(159, 162, 191, 0.18), 1px 0 1px rgba(159, 162, 191, 0.32)',
+    /* boxShadow:
+      '2px 0 3px rgba(159, 162, 191, 0.18), 1px 0 1px rgba(159, 162, 191, 0.32)', */
     width: '280px'
   },
   header: {
@@ -1154,3 +1159,5 @@ export const PureLightTheme = createTheme({
     'none'
   ]
 });
+
+

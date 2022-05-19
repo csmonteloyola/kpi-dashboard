@@ -17,15 +17,13 @@ const HeaderWrapper = styled(Box)(
         padding: ${theme.spacing(0, 2)};
         right: 0;
         z-index: 5;
-        background-color: ${theme.header.background};
-        box-shadow: ${theme.header.boxShadow};
         position: fixed;
         justify-content: space-between;
         width: 100%;
-        @media (min-width: ${theme.breakpoints.values.lg}px) {
+        /* @media (min-width: ${theme.breakpoints.values.xl}px) {
             left: ${theme.sidebar.width};
             width: auto;
-        }
+        } */
 `
 );
 
@@ -35,9 +33,7 @@ function Header() {
   return (
     <HeaderWrapper display="flex" alignItems="center">
       <Box display="flex" alignItems="center">
-        <Hidden lgUp>
-          <Logo />
-        </Hidden>
+        <Logo />
         {/* <Hidden mdDown>
           <HeaderMenu />
         </Hidden> */}
@@ -45,13 +41,13 @@ function Header() {
       <Box display="flex" alignItems="center">
         {/* <HeaderButtons />
         <HeaderUserbox /> */}
-        <Hidden lgUp>
+        {/* <Hidden lgUp>
           <Tooltip arrow title="Toggle Menu">
             <IconButton color="primary" onClick={toggleSidebar}>
               {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
             </IconButton>
           </Tooltip>
-        </Hidden>
+        </Hidden> */}
       </Box>
     </HeaderWrapper>
   );

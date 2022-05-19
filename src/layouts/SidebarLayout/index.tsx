@@ -16,9 +16,9 @@ const MainWrapper = styled(Box)(
         display: flex;
         height: 100%;
         
-        @media (min-width: ${theme.breakpoints.values.lg}px) {
+        /* @media (min-width: ${theme.breakpoints.values.xl}px) {
             padding-left: ${theme.sidebar.width};
-        }
+        } */
 `
 );
 
@@ -33,7 +33,7 @@ const MainContent = styled(Box)(
 const SidebarLayout: FC<SidebarLayoutProps> = () => {
   return (
     <>
-      <Sidebar />
+     {/*  <Sidebar /> */}
       <MainWrapper>
         <Header />
         <MainContent>
