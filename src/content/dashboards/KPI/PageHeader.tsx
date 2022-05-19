@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 /* import { useTheme } from '@mui/material/styles'; */
 
@@ -9,9 +9,9 @@ function PageHeader() {
   return (
     <Grid container alignItems="center">
       <Grid item>
-        <Typography variant="h3" component="h3" gutterBottom>
+        {/* <Typography variant="h3" component="h3" gutterBottom color={}>
           Page Header
-        </Typography>
+        </Typography> */}
       </Grid>
     </Grid>
   );

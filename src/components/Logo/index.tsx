@@ -32,11 +32,9 @@ function Logo() {
 
   return (
     <LogoWrapper to="/kpi">
-      <Hidden smDown>
-        <LogoTextWrapper>
-          <LogoText>CAM KPI Dashboard</LogoText>
-        </LogoTextWrapper>
-      </Hidden>
+      <LogoTextWrapper>
+        <LogoText>CAM KPI Dashboard</LogoText>
+      </LogoTextWrapper>
     </LogoWrapper>
   );
 }
