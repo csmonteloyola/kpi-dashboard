@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-import Logo from 'src/components/Logo';
-
 import { Box, Drawer, Hidden } from '@mui/material';
 
-import { styled } from '@mui/material/styles';
+import Logo from 'src/components/Logo';
+import { Scrollbars } from 'react-custom-scrollbars-2';
+import { SidebarContext } from 'src/contexts/SidebarContext';
 import SidebarMenu from './SidebarMenu';
+import { styled } from '@mui/material/styles';
+import { useContext } from 'react';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -28,7 +27,7 @@ const SidebarWrapper = styled(Box)(
 const TopSection = styled(Box)(
   ({ theme }) => `
         display: flex;
-        height: 88px;
+        height: 55px;
         align-items: center;
         margin: 0 ${theme.spacing(2)} ${theme.spacing(2)};
         border-bottom: ${theme.sidebar.dividerBg} solid 1px;
