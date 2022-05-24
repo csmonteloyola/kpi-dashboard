@@ -1,11 +1,12 @@
-import App from './App';
-import ReactDOM from 'react-dom';
 import 'src/utils/chart';
-import * as serviceWorker from './serviceWorker';
-import { HelmetProvider } from 'react-helmet-async';
-import { BrowserRouter } from 'react-router-dom';
-
 import 'nprogress/nprogress.css';
+
+import * as serviceWorker from './serviceWorker';
+
+import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import ReactDOM from 'react-dom';
 import { SidebarProvider } from './contexts/SidebarContext';
 
 ReactDOM.render(
