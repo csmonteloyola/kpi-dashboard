@@ -31,7 +31,7 @@ function Logo() {
 
 
   return (
-    <LogoWrapper to="/kpi">
+    <LogoWrapper to="/kpi" sx={{width: '400px'}}>
       <LogoTextWrapper>
         <LogoText>CAM KPI Dashboard</LogoText>
       </LogoTextWrapper>

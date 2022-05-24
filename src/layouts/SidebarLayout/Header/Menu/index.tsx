@@ -2,27 +2,30 @@ import {
   Box,
   List,
   ListItem,
-  ListItemText,
-  Menu,
-  MenuItem
+  ListItemText
 } from '@mui/material';
 import { useRef, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 
+/* import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
+ */
 const ListWrapper = styled(Box)(
   ({ theme }) => `
+        border: '1px solid red'
+        
         .MuiTouchRipple-root {
             display: none;
         }
         
         .MuiListItem-root {
+             
             transition: ${theme.transitions.create(['color', 'fill'])};
             
             &.MuiListItem-indicators {
                 padding: ${theme.spacing(1, 2)};
-            
+                
                 .MuiListItemText-root {
                     .MuiTypography-root {
                         &:before {
@@ -44,7 +47,7 @@ const ListWrapper = styled(Box)(
                 &.active,
                 &:active,
                 &:hover {
-                
+                    color: ${theme.colors.primary.light};
                     background: transparent;
                 
                     .MuiListItemText-root {
@@ -64,44 +67,55 @@ const ListWrapper = styled(Box)(
 
 function HeaderMenu() {
 
-  const ref = useRef<any>(null);
-  const [isOpen, setOpen] = useState<boolean>(false);
+  /* const ref = useRef<any>(null);
+  const [isOpen, setOpen] = useState<boolean>(false); */
 
-  const handleOpen = (): void => {
+/*   const handleOpen = (): void => {
     setOpen(true);
   };
 
   const handleClose = (): void => {
     setOpen(false);
-  };
+  }; */
 
   return (
     <>
-      <ListWrapper>
+      <ListWrapper sx={{width:'100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
         <List disablePadding component={Box} display="flex">
           <ListItem
             classes={{ root: 'MuiListItem-indicators' }}
             button
             component={NavLink}
-            to="/components/buttons"
+            to="/dashboards/kpi"
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}
-              primary="Buttons"
+              primary="Dashboard"
             />
           </ListItem>
           <ListItem
             classes={{ root: 'MuiListItem-indicators' }}
             button
             component={NavLink}
-            to="/components/forms"
+            to="/components/metrics"
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}
-              primary="Forms"
+              primary="Metrics"
             />
           </ListItem>
           <ListItem
+            classes={{ root: 'MuiListItem-indicators' }}
+            button
+            component={NavLink}
+            to="/components/settings"
+          >
+            <ListItemText
+              primaryTypographyProps={{ noWrap: true }}
+              primary="Settings"
+            />
+          </ListItem>
+          {/* <ListItem
             classes={{ root: 'MuiListItem-indicators' }}
             button
             ref={ref}
@@ -118,10 +132,10 @@ function HeaderMenu() {
                 </Box>
               }
             />
-          </ListItem>
+          </ListItem> */}
         </List>
       </ListWrapper>
-      <Menu anchorEl={ref.current} onClose={handleClose} open={isOpen}>
+      {/* <Menu anchorEl={ref.current} onClose={handleClose} open={isOpen}>
         <MenuItem sx={{ px: 3 }} component={NavLink} to="/overview">
           Overview
         </MenuItem>
@@ -134,7 +148,7 @@ function HeaderMenu() {
         <MenuItem sx={{ px: 3 }} component={NavLink} to="/components/modals">
           Modals
         </MenuItem>
-      </Menu>
+      </Menu> */}
     </>
   );
 }

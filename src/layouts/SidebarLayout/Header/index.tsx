@@ -1,12 +1,11 @@
-import { Box, Hidden, IconButton, Tooltip } from '@mui/material';
-
+import { Box } from '@mui/material';
 import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 /* import HeaderButtons from './Buttons'; */
-/* import HeaderMenu from './Menu'; */
+import HeaderMenu from './Menu';
 /* import HeaderUserbox from './Userbox'; */
 import Logo from 'src/components/Logo';
-import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
-import { SidebarContext } from 'src/contexts/SidebarContext';
+/* import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone'; */
+/* import { SidebarContext } from 'src/contexts/SidebarContext'; */
 import { styled } from '@mui/material/styles';
 import { useContext } from 'react';
 
@@ -27,17 +26,23 @@ const HeaderWrapper = styled(Box)(
 `
 );
 
+const HeaderBox = styled(Box)(
+  ({ theme }) => `
+        display: flex;
+        align-items:center;
+        width: 100%;
+`
+);
+
 function Header() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
+  /* const { sidebarToggle,  toggleSidebar } = useContext(SidebarContext); */
 
   return (
     <HeaderWrapper display="flex" alignItems="center">
-      <Box display="flex" alignItems="center">
+      <HeaderBox>
         <Logo />
-        {/* <Hidden mdDown>
-          <HeaderMenu />
-        </Hidden> */}
-      </Box>
+        <HeaderMenu/>
+      </HeaderBox>
       <Box display="flex" alignItems="center">
         {/* <HeaderButtons />
         <HeaderUserbox /> */}
