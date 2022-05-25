@@ -22,7 +22,7 @@ const Section = styled(Box)(({ theme }) => ({
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: theme.typography.pxToRem(14),
-  color: theme.colors.info.dark,
+  color: theme.colors.info.light,
   marginBottom: '24px',
 }));
 
@@ -131,6 +131,23 @@ function DashboardKPI() {
                         align="center">
                         Avg. 6 Mo.
                       </CountLabel>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <SectionTitle
+                    gutterBottom
+                    variant="h2"
+                    align="left"
+                  >
+                    Status
+                  </SectionTitle>
+
+                  <Grid container  alignItems="stretch">
+                    <Grid item xs={12} md={6} textAlign="left">
+                    
+
                     </Grid>
                   </Grid>
                 </Grid>
