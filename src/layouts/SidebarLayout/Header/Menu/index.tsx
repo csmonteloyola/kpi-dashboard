@@ -13,8 +13,7 @@ import { styled } from '@mui/material/styles';
  */
 const ListWrapper = styled(Box)(
   ({ theme }) => `
-        border: '1px solid red'
-        
+
         .MuiTouchRipple-root {
             display: none;
         }

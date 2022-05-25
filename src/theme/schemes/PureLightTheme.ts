@@ -240,7 +240,7 @@ export const PureLightTheme = createTheme({
   },
   header: {
     height: '55px',
-    background: colors.alpha.white[100],
+    background: colors.alpha.white[30],
     boxShadow: colors.shadows.cardSm,
     textColor: colors.secondary.main
   },
@@ -414,6 +414,20 @@ export const PureLightTheme = createTheme({
         },
         icon: {
           top: 'calc(50% - 14px)'
+        },
+        outlined:{
+          borderColor: colors.alpha.white[100]
+        },
+        select:{
+          color: colors.alpha.white[100],
+          width: '100px'
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root:{
+          color: colors.alpha.white[100]
         }
       }
     },
@@ -424,11 +438,17 @@ export const PureLightTheme = createTheme({
             paddingRight: 6,
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: colors.alpha.black[50]
+            borderColor: colors.alpha.white[100]
           },
           '&.Mui-focused:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: colors.primary.main
+            borderColor: colors.alpha.white[100]
+          },
+          '&.MuiOutlinedInput-notchedOutline': {
+            borderColor: colors.alpha.white[100]
           }
+        },
+        input: {
+          color: colors.alpha.white[5]
         }
       }
     },
