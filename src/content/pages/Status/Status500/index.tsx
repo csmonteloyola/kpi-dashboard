@@ -1,17 +1,17 @@
-import { useState } from 'react';
 import {
   Box,
-  Typography,
-  Hidden,
-  Container,
   Button,
-  Grid
+  Container,
+  Grid,
+  Hidden,
+  Typography
 } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
-import RefreshTwoToneIcon from '@mui/icons-material/RefreshTwoTone';
-import LoadingButton from '@mui/lab/LoadingButton';
 
+import { Helmet } from 'react-helmet-async';
+import LoadingButton from '@mui/lab/LoadingButton';
+import RefreshTwoToneIcon from '@mui/icons-material/RefreshTwoTone';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
 
 const GridWrapper = styled(Grid)(
   ({ theme }) => `
@@ -115,7 +115,7 @@ function Status500() {
               <Container maxWidth="sm">
                 <Box textAlign="center">
                   <TypographyPrimary variant="h1" sx={{ my: 2 }}>
-                    Tokyo Free White React Admin Dashboard
+                    CAM KPI Dashboard
                   </TypographyPrimary>
                   <TypographySecondary
                     variant="h4"

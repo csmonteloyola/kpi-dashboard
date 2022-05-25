@@ -1,4 +1,5 @@
 import { Box, Tooltip } from '@mui/material';
+
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
@@ -73,7 +74,7 @@ const LogoSignInner = styled(Box)(
 function Logo() {
 
   return (
-    <Tooltip title="Tokyo Free White React Admin Dashboard" arrow>
+    <Tooltip title="CAM KPI Dashboard" arrow>
       <LogoWrapper to="/overview">
         <LogoSignWrapper>
           <LogoSign>
