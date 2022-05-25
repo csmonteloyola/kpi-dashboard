@@ -8,7 +8,7 @@ function PageHeader() {
  /*  const theme = useTheme(); */
 
   return (
-    <Grid container alignItems="left"  maxWidth="xl">
+    <Grid container alignItems="left"  maxWidth="lg">
       <Grid item xs={12} md={12} display="flex" >
         <DashboardFilters/>
       </Grid>
