@@ -5,7 +5,7 @@ import {
   Chart,
   Legend,
   LineSeries,
-  Title,
+  Tooltip,
   ValueAxis
 } from '@devexpress/dx-react-chart-material-ui';
 import { Typography, useTheme } from '@mui/material';
@@ -14,15 +14,17 @@ import { Animation } from '@devexpress/dx-react-chart';
 import { BorderAll } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import { EventTracker } from '@devexpress/dx-react-chart';
 import Footer from 'src/components/Footer';
 import Grid from '@mui/material/Grid';
 import { Helmet } from 'react-helmet-async';
 import PageHeader from './PageHeader';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import { Palette } from '@devexpress/dx-react-chart';
+import SectionCount from 'src/components/SectionCount';
+import SectionTitle from 'src/components/SectionTitle';
 import { ValueScale } from '@devexpress/dx-react-chart';
 import { styled } from '@mui/material/styles';
-import { themeCreator } from 'src/theme/base';
 
 const Section = styled(Box)(({ theme }) => ({
   ...theme.typography.body1,
@@ -34,25 +36,6 @@ const Section = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   marginBottom: '20px',
 }));
-
-const SectionTitle = styled(Typography)(({ theme }) => ({
-  fontSize: theme.typography.pxToRem(14),
-  color: theme.colors.info.light,
-  marginBottom: '24px',
-}));
-
-const Count = styled(Typography)(({ theme }) => ({
-  fontSize: theme.typography.pxToRem(40),
-  color: theme.colors.alpha.trueWhite[100]
-}));
-
-const CountLabel = styled(Typography)(({ theme }) => ({
-  color: theme.colors.alpha.trueWhite[70],
-  textTransform: 'uppercase',
-  fontWeight: 100
-}));
-
-
 
 
 const PREFIX = 'Demo';
@@ -161,94 +144,31 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
               <Section sx={{height: "100%"}}>
                 <Grid container  alignItems="stretch">
                   <Grid item xs={6} md={6} textAlign="left" padding={2}>
-                    <SectionTitle
-                      gutterBottom
-                      variant="h2"
-                      align="left"
-                    >
-                      Tickets
-                    </SectionTitle>
+                    <SectionTitle title='Tickets'/>
 
                     <Grid container  alignItems="stretch">
                       <Grid item xs={12} md={6} textAlign="left">
-                      <Count
-                          gutterBottom
-                          variant="h3"
-                          align="center">
-                          5
-                        </Count>
-                        <CountLabel
-                          gutterBottom
-                          variant="h4"
-                          align="center">
-                          Open
-                        </CountLabel>
+                        <SectionCount number='5' name='Open'/>
                       </Grid>
                       <Grid item xs={12} md={6} textAlign="left">
-                        <Count
-                          gutterBottom
-                          variant="h3"
-                          align="center">
-                            10
-                        </Count>
-                        <CountLabel
-                          gutterBottom
-                          variant="h4"
-                          align="center">
-                          Closed
-                        </CountLabel>
+                        <SectionCount number='10' name='Closed'/>
                       </Grid>
                     </Grid>
                   </Grid>
                   <Grid item xs={6} md={6} textAlign="left" padding={2}>
-                    <SectionTitle
-                      gutterBottom
-                      variant="h2"
-                      align="left"
-                    >
-                      TAT
-                    </SectionTitle>
+                    <SectionTitle title='TAT'/>
 
                     <Grid container  alignItems="stretch">
                       <Grid item xs={12} md={6} textAlign="left">
-                      <Count
-                          gutterBottom
-                          variant="h3"
-                          align="center">
-                          15
-                        </Count>
-                        <CountLabel
-                          gutterBottom
-                          variant="h4"
-                          align="center">
-                          Avg.
-                        </CountLabel>
+                        <SectionCount number='15' name='AVG.'/>
                       </Grid>
                       <Grid item xs={12} md={6} textAlign="left">
-                        <Count
-                          gutterBottom
-                          variant="h3"
-                          align="center">
-                            20
-                        </Count>
-                        <CountLabel
-                          gutterBottom
-                          variant="h4"
-                          align="center">
-                          Avg. 6 Mo.
-                        </CountLabel>
+                        <SectionCount number='20' name='AVG 6 Mo.'/>
                       </Grid>
                     </Grid>
                   </Grid>
 
                   <Grid item xs={12} md={12} textAlign="left" padding={2}>
-                    {/* <SectionTitle
-                      gutterBottom
-                      variant="h2"
-                      align="left"
-                    >
-                      Status
-                    </SectionTitle> */}
 
                     <Grid container  alignItems="stretch">
                       <Grid item xs={12} md={12} textAlign="left">
@@ -280,6 +200,8 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                           />
                           <Legend position="bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
                           <Animation />
+                          <EventTracker />
+                          <Tooltip />
                         </StyledChart>
                         
                       </Grid>
