@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles';
 const Title = styled(Typography)(({ theme }) => ({
   fontSize: theme.typography.pxToRem(14),
   color: theme.colors.info.light,
-  marginBottom: '24px',
+
 }));
 
 interface SectionTitleProps {

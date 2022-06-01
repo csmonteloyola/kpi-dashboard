@@ -2,19 +2,18 @@ import * as React from 'react';
 
 import {
   ArgumentAxis,
+  BarSeries,
   Chart,
   Legend,
   LineSeries,
   Tooltip,
   ValueAxis
 } from '@devexpress/dx-react-chart-material-ui';
-import { Typography, useTheme } from '@mui/material';
+import { EventTracker, HoverState, } from '@devexpress/dx-react-chart';
 
 import { Animation } from '@devexpress/dx-react-chart';
-import { BorderAll } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { EventTracker } from '@devexpress/dx-react-chart';
 import Footer from 'src/components/Footer';
 import Grid from '@mui/material/Grid';
 import { Helmet } from 'react-helmet-async';
@@ -34,7 +33,6 @@ const Section = styled(Box)(({ theme }) => ({
   background: theme.general.background,
   display: "flex", 
   flexDirection: "column",
-  marginBottom: '20px',
 }));
 
 
@@ -42,6 +40,7 @@ const PREFIX = 'Demo';
 
 const classes = {
   chart: `${PREFIX}-chart`,
+  chartBar: `${PREFIX}-chartBar`,
 };
 
 
@@ -93,8 +92,15 @@ const StyledChart = styled(Chart)(() => ({
   },
 }));
 
+const StyledBarChart = styled(Chart)(() => ({
+  [`&.${classes.chartBar}`]: {
+    height: '300px'
+  },
+}));
 
-const data = [
+
+
+const dataLine = [
   {
     date: 'May 1', open: 9, closed: 4,
   },{
@@ -112,6 +118,16 @@ const data = [
   },
 ];
 
+const dataBar = [
+  { date: 'May 1', commits: 2 },
+  { date: 'May 2', commits: 6 },
+  { date: 'May 3', commits: 1 },
+  { date: 'May 4', commits: 4 },
+  { date: 'May 5', commits: 0 },
+  { date: 'May 6', commits: 0 },
+  { date: 'May 7', commits: 5 },
+];
+
 const modifyCounts = () => [0, 12];
 
 
@@ -122,12 +138,13 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
     super(props);
 
     this.state = {
-      data,
+      dataLine,
+      dataBar
     };
   }
 
   render() {
-    const { data: chartData } = this.state;
+    const { dataLine: chartData,  dataBar: chartDataBar } = this.state;
 
     return (
       <>
@@ -139,10 +156,10 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
         </PageTitleWrapper>
         
         <Container maxWidth="lg">
-          <Grid container spacing={2} alignItems="stretch">
+          <Grid container spacing={2} alignItems="stretch" sx={{height: "100%"}}>
             <Grid item xs={6} md={8}>
-              <Section sx={{height: "100%"}}>
-                <Grid container  alignItems="stretch">
+              <Section>
+                <Grid container alignItems="stretch">
                   <Grid item xs={6} md={6} textAlign="left" padding={2}>
                     <SectionTitle title='Tickets'/>
 
@@ -158,7 +175,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                   <Grid item xs={6} md={6} textAlign="left" padding={2}>
                     <SectionTitle title='TAT'/>
 
-                    <Grid container  alignItems="stretch">
+                    <Grid container alignItems="stretch">
                       <Grid item xs={12} md={6} textAlign="left">
                         <SectionCount number='15' name='AVG.'/>
                       </Grid>
@@ -175,7 +192,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                       
                         <StyledChart
                           data={chartData}
-                          height={300}
+                          height={285}
                         >
                           <Palette scheme={['#000C57', '#FFA319']}/>
                           <ArgumentAxis labelComponent={ArgumentLabel}/>
@@ -211,15 +228,97 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
               </Section>
             </Grid>
             <Grid item xs={6} md={4}>
-              <Section>xs=6 md=4</Section>
-              <Section sx={{marginBottom: 0}}>xs=6 md=4</Section>
+              <Section>
+                <Grid container  alignItems="stretch">
+                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                    <SectionTitle title='Pull Requests'/>
+
+                    <Grid container alignItems="stretch">
+                      <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='5' name='Open'/>
+                      </Grid>
+                      <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='10' name='Closed'/>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Section>
+              <Section sx={{marginTop: '20px'}} alignItems="stretch">
+                <Grid container  alignItems="stretch">
+                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                    <SectionTitle title='Lines of Code'/>
+
+                    <Grid container  alignItems="stretch">
+                    <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='5' name='Additions'/>
+                      </Grid>
+                      <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='10' name='Deletions'/>
+                      </Grid>
+                      <Grid item xs={12} md={12} textAlign="center">
+                        <SectionCount number='10' name='Changed'/>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+              </Section>
             </Grid>
             <Grid item xs={6} md={4}>
-              <Section>xs=6 md=4<br/>xs=6 md=4<br/>xs=6 md=4<br/>xs=6 md=4<br/>xs=6 md=4<br/>xs=6 md=4<br/></Section>
-              <Section sx={{marginBottom: 0}}>xs=6 md=4</Section>
+              <Section>
+                <Grid container  alignItems="stretch">
+                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                    <SectionTitle title='Builds'/>
+
+                    <Grid container  alignItems="stretch">
+                    <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='5' name='Success'/>
+                      </Grid>
+                      <Grid item xs={12} md={6} textAlign="left">
+                        <SectionCount number='10' name='Failed'/>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Section>
             </Grid>
             <Grid item xs={6} md={8}>
-              <Section sx={{height: "100%"}}>xs=6 md=8</Section>
+              <Section sx={{height: "100%"}}>
+                <Grid container  alignItems="stretch">
+                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                    <SectionTitle title='Commits'/>
+
+                    <Grid container  alignItems="stretch">
+                      <Grid item xs={12} md={2} textAlign="left">
+                        <SectionCount number='5' name='Total'/>
+                      </Grid>
+                      <Grid item xs={12} md={10}>
+                        <StyledBarChart
+                          data={chartDataBar}
+                          height={240}
+                        >
+                          <Palette scheme={['#FFA319']}/>
+                          <ArgumentAxis labelComponent={ArgumentLabel}/>
+                          <ValueAxis
+                            labelComponent={ValueLabel}
+                            gridComponent={ValueGrid}
+                          />
+
+                          <BarSeries
+                            valueField="commits"
+                            argumentField="date"
+                          />
+                          <Animation />
+                          <EventTracker />
+                          <Tooltip />
+                          <HoverState />
+                        </StyledBarChart>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Section>
             </Grid>
           </Grid>
         </Container>

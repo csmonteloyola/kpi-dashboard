@@ -1,6 +1,7 @@
+import { Box, Typography } from '@mui/material';
+
 import { FC } from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const Count = styled(Typography)(({ theme }) => ({
@@ -25,7 +26,7 @@ const SectionCount: FC<SectionCountProps> = ({
   name = ''
 }) => {
     return (
-      <>
+      <Box sx={{marginBottom: '15px', marginTop: '15px'}}>
         <Count
           gutterBottom
           variant="h3"
@@ -38,7 +39,7 @@ const SectionCount: FC<SectionCountProps> = ({
           align="center">
           {name}
         </CountLabel>
-      </>
+      </Box>
     );
 };
 
