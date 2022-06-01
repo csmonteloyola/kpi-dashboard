@@ -148,7 +148,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
 
     return (
       <>
-        <Helmet bodyAttributes={{style: 'background:linear-gradient(135deg, rgba(1,54,66,1) 14%, rgba(2,5,61,1) 89%)'}}>
+        <Helmet>
           <title>CAM KPI Dashboard</title>
         </Helmet>
         <PageTitleWrapper>
@@ -228,7 +228,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
               </Section>
             </Grid>
             <Grid item xs={6} md={4}>
-              <Section>
+              <Section sx={{marginBottom: '20px'}}>
                 <Grid container  alignItems="stretch">
                   <Grid item xs={12} md={12} textAlign="left" padding={2}>
                     <SectionTitle title='Pull Requests'/>
@@ -244,7 +244,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                   </Grid>
                 </Grid>
               </Section>
-              <Section sx={{marginTop: '20px'}} alignItems="stretch">
+              <Section alignItems="stretch">
                 <Grid container  alignItems="stretch">
                   <Grid item xs={12} md={12} textAlign="left" padding={2}>
                     <SectionTitle title='Lines of Code'/>

@@ -15,6 +15,7 @@ const MainWrapper = styled(Box)(
         flex: 1 1 auto;
         display: flex;
         height: 100%;
+        background:linear-gradient(135deg, rgba(1,54,66,1) 14%, rgba(2,5,61,1) 89%)
         
         /* @media (min-width: ${theme.breakpoints.values.xl}px) {
             padding-left: ${theme.sidebar.width};

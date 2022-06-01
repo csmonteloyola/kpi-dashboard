@@ -26,9 +26,9 @@ const menuItems: MenuItems[] = [
         link: '/dashboards/kpi'
       },
       {
-        name: 'Metrics',
+        name: 'Services',
         icon: AssessmentIcon,
-        link: '/dashboards/metrics'
+        link: '/content/services'
       },
       {
         name: 'Settings',
