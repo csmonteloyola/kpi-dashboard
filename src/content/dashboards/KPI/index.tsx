@@ -9,6 +9,7 @@ import {
   Tooltip,
   ValueAxis
 } from '@devexpress/dx-react-chart-material-ui';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { EventTracker, HoverState, } from '@devexpress/dx-react-chart';
 
 import { Animation } from '@devexpress/dx-react-chart';
@@ -23,11 +24,12 @@ import { Palette } from '@devexpress/dx-react-chart';
 import SectionCount from 'src/components/SectionCount';
 import SectionTitle from 'src/components/SectionTitle';
 import { ValueScale } from '@devexpress/dx-react-chart';
+import { red } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 
 const Section = styled(Box)(({ theme }) => ({
   ...theme.typography.body1,
-  padding: theme.spacing(1),
+  padding: theme.spacing(2),
   textAlign: 'center',
   color: theme.palette.info.light,
   background: theme.general.background,
@@ -99,6 +101,12 @@ const StyledBarChart = styled(Chart)(() => ({
 }));
 
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  color: 'white',
+  border: '1px solid #53626c'
+}));
+
+
 
 const dataLine = [
   {
@@ -131,6 +139,23 @@ const dataBar = [
 const modifyCounts = () => [0, 12];
 
 
+function createData(
+  ticket: string,
+  date: string,
+  epic: string,
+  assignee: string
+) {
+  return { ticket, date, epic, assignee };
+}
+
+const rows = [
+  createData('CAM-1', '05/01/2022', 'Intake Project Process', 'Carole'),
+  createData('CAM-2', '05/02/2022', 'Intake Project Process', 'Carole'),
+  createData('CAM-3', '05/03/2022', 'Intake Project Process', 'Carole'),
+  createData('CAM-4', '05/04/2022', 'Intake Project Process', 'Carole'),
+  createData('CAM-5', '05/05/2022', 'Intake Project Process', 'Carole'),
+  createData('CAM-6', '05/06/2022', 'Intake Project Process', 'Carole'),
+];
 
 
 export default class DashboardKPI extends React.PureComponent <any, any> {
@@ -160,7 +185,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
             <Grid item xs={6} md={8}>
               <Section>
                 <Grid container alignItems="stretch">
-                  <Grid item xs={6} md={6} textAlign="left" padding={2}>
+                  <Grid item xs={6} md={6} textAlign="left">
                     <SectionTitle title='Tickets'/>
 
                     <Grid container  alignItems="stretch">
@@ -172,7 +197,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item xs={6} md={6} textAlign="left" padding={2}>
+                  <Grid item xs={6} md={6} textAlign="left">
                     <SectionTitle title='TAT'/>
 
                     <Grid container alignItems="stretch">
@@ -185,7 +210,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                     </Grid>
                   </Grid>
 
-                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <Grid item xs={12} md={12} textAlign="left">
 
                     <Grid container  alignItems="stretch">
                       <Grid item xs={12} md={12} textAlign="left">
@@ -230,7 +255,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
             <Grid item xs={6} md={4}>
               <Section sx={{marginBottom: '20px'}}>
                 <Grid container  alignItems="stretch">
-                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <Grid item xs={12} md={12} textAlign="left">
                     <SectionTitle title='Pull Requests'/>
 
                     <Grid container alignItems="stretch">
@@ -246,7 +271,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
               </Section>
               <Section alignItems="stretch">
                 <Grid container  alignItems="stretch">
-                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <Grid item xs={12} md={12} textAlign="left">
                     <SectionTitle title='Lines of Code'/>
 
                     <Grid container  alignItems="stretch">
@@ -268,7 +293,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
             <Grid item xs={6} md={4}>
               <Section>
                 <Grid container  alignItems="stretch">
-                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <Grid item xs={12} md={12} textAlign="left">
                     <SectionTitle title='Builds'/>
 
                     <Grid container  alignItems="stretch">
@@ -286,7 +311,7 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
             <Grid item xs={6} md={8}>
               <Section sx={{height: "100%"}}>
                 <Grid container  alignItems="stretch">
-                  <Grid item xs={12} md={12} textAlign="left" padding={2}>
+                  <Grid item xs={12} md={12} textAlign="left">
                     <SectionTitle title='Commits'/>
 
                     <Grid container  alignItems="stretch">
@@ -318,6 +343,41 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
                     </Grid>
                   </Grid>
                 </Grid>
+              </Section>
+            </Grid>
+          </Grid>
+
+          <Grid container spacing={2} alignItems="stretch" sx={{height: "100%", marginTop: '5px'}}>
+            <Grid item xs={12}>
+              <Section>
+                <SectionTitle title='Data View - Open Tickets'/>
+
+                <TableContainer component={Box} sx={{marginTop: '20px'}}>
+                  <Table sx={{ minWidth: 650}} size="small" aria-label="a dense table">
+                    <TableHead>
+                      <TableRow>
+                        <StyledTableCell>Ticket</StyledTableCell>
+                        <StyledTableCell>Date</StyledTableCell>
+                        <StyledTableCell>Epic</StyledTableCell>
+                        <StyledTableCell>Assignee</StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow
+                          key={row.ticket}
+                        >
+                          <StyledTableCell component="th" scope="row">
+                            <Button size="small">{row.ticket}</Button>
+                          </StyledTableCell>
+                          <StyledTableCell>{row.date}</StyledTableCell>
+                          <StyledTableCell>{row.epic}</StyledTableCell>
+                          <StyledTableCell>{row.assignee}</StyledTableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </Section>
             </Grid>
           </Grid>
