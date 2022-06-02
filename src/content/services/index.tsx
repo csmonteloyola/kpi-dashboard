@@ -1,10 +1,13 @@
 import * as React from 'react';
 
-import { Avatar, Badge, Box, Button, Card, CardActionArea, CardContent, FormControl, InputLabel, MenuItem, Select, TextField, Tooltip, Typography, } from '@mui/material';
+import { Avatar, Badge, Box, Button, Card, CardActionArea, CardActions, CardContent, FormControl, InputLabel, MenuItem, Select, TextField, Tooltip, Typography, } from '@mui/material';
 
+import AddIcon from '@mui/icons-material/Add';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 import { ChangeEvent } from 'react';
+import CheckIcon from '@mui/icons-material/Check';
 import Container from '@mui/material/Container';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Footer from 'src/components/Footer';
 import Grid from '@mui/material/Grid';
 import { Helmet } from 'react-helmet-async';
@@ -40,7 +43,7 @@ const ConnectStatus = styled(Typography)(
 
 const SectionWrapper = styled(Box)(({ theme }) => ({
   ...theme.typography.body1,
-  padding: theme.spacing(2),
+  padding: theme.spacing(3),
   textAlign: 'center',
   color: theme.palette.info.light,
   background: theme.colors.alpha.white[100],
@@ -53,13 +56,28 @@ const FormElement = styled(FormControl)(
   ({theme}) => `
     margin: ${theme.spacing(1)};
     margin-bottom: ${theme.spacing(1)};
-
+    color: ${theme.colors.alpha.black[100]};
+    
       .input {
         color: ${theme.colors.alpha.black[100]};
+
+        &:hover{
+          border: 1px solid ${theme.colors.primary.main};
+          border-radius: 5px;
+        }
       }
 
       .select {
         color: ${theme.colors.alpha.black[100]};
+
+        &:hover{
+          border: 1px solid ${theme.colors.primary.main}
+        }
+
+      }
+
+      .MuiSelect-select{
+        color: ${theme.colors.alpha.black[100]} !important;
       }
   `
 )
@@ -69,8 +87,11 @@ function PageServices() {
   const [project, setProject] = React.useState<String | null>(null);
   const [type, setType] = React.useState<String | null>(null);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeProject = (event: ChangeEvent<HTMLInputElement>) => {
     setProject(event.target.value as string);
+  };
+  const handleChangeType = (event: ChangeEvent<HTMLInputElement>) => {
+    setType(event.target.value as string);
   };
 
   return (
@@ -108,7 +129,7 @@ function PageServices() {
                 </Card>
               </Grid>
               <Grid item>
-              <Card sx={{ px: 1, background: 'lightgray'}}>
+                <Card sx={{ px: 1, background: 'lightgray'}}>
                   <CardContent>
                     <AvatarWrapper>
                       <img
@@ -173,15 +194,16 @@ function PageServices() {
               <Grid xs={4} item>
                 <SectionWrapper>
                   <Typography variant="h3" color="secondary" align="left" sx={{paddingLeft: '10px', paddingBottom: '10px'}}>Github - Service Details</Typography>
+                  
                   <FormElement variant="outlined">
                     <InputLabel id="" className='input'>Project</InputLabel>
                     <Select
+                      autoWidth
                       className='select'
                       labelId=""
-                      id="demo-simple-select-outlined"
                       value={project}
                       label="Project"
-                      onChange={handleChange}
+                      onChange={handleChangeProject}
                     >
                       <MenuItem value="0">All Projects</MenuItem>
                       <MenuItem value="1">DB Web</MenuItem>
@@ -195,10 +217,9 @@ function PageServices() {
                     <Select
                       className='select'
                       labelId=""
-                      id="demo-simple-select-outlined"
                       value={type}
                       label="Type"
-                      onChange={handleChange}
+                      onChange={handleChangeType}
                     >
                       <MenuItem value="0">Pull Requests</MenuItem>
                       <MenuItem value="1">Commits</MenuItem>
@@ -260,9 +281,56 @@ function PageServices() {
                 </SectionWrapper>
               </Grid>
               
-              <Grid xs={6} item>
+              <Grid xs={3} item>
                 <SectionWrapper>
-                  <Typography variant="h3" color="secondary" align="left" sx={{paddingLeft: '10px', paddingBottom: '10px'}}>Metrics</Typography>
+                  <Typography variant="h3" color="secondary" align="left" sx={{paddingLeft: '10px', paddingBottom: '20px'}}>Metrics</Typography>
+
+                  <Card variant="outlined" sx={{marginBottom: '20px'}}>
+                    <CardContent>
+                      <Grid container>
+                        <Grid item xs={12} sm={12} md={12} lg={8}>
+                          <Typography gutterBottom variant="h3" align='left'>
+                            Pull Requests
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={4}>
+                          <Button size="medium" variant="outlined" startIcon={<AddIcon />}>Add</Button>
+                        </Grid>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+
+                  <Card variant="outlined" sx={{marginBottom: '20px'}}>
+                    <CardContent>
+                      <Grid container>
+                        <Grid item xs={12} sm={12} md={12} lg={8}>
+                          <Typography gutterBottom variant="h3" align='left'>
+                            Commits
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={4}>
+                          <Button size="medium" variant="contained" color='success'  startIcon={<CheckIcon />}>Added</Button>
+                        </Grid>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+
+                  <Card variant="outlined" sx={{marginBottom: '20px'}}>
+                    <CardContent>
+                      <Grid container>
+                        <Grid item xs={12} sm={12} md={12} lg={8}>
+                          <Typography gutterBottom variant="h3" align='left'>
+                            Lines of Code
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={4}>
+                          <Button size="medium" variant="outlined" color='error' startIcon={<DeleteIcon />}>Remove</Button>
+                        </Grid>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+
+                  <Box textAlign="right"><Button>View Dashboard</Button></Box>
                 </SectionWrapper>
               </Grid>
             </Grid>
