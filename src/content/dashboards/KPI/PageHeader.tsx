@@ -9,7 +9,7 @@ function PageHeader() {
 
   return (
     <Grid container alignItems="left"  maxWidth="lg">
-      <Grid item xs={12} md={12} display="flex" >
+      <Grid item xs={12} md={12} display="flex" justifyContent='flex-end' >
         <DashboardFilters/>
       </Grid>
     </Grid>

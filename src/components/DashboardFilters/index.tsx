@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { ChangeEvent } from 'react';
@@ -43,10 +43,9 @@ function DashboardFilters() {
   return (
     <FilterWrapper >
       <Box
-        display={{ xs: 'block', md: 'flex' }}
+        display='flex'
         alignItems="center"
-        textAlign={{ xs: 'left', md: 'left' }}
-        justifyContent="space-between"
+        textAlign='right'
       >
         <FormControl variant="outlined">
           <InputLabel id="">Project</InputLabel>
@@ -56,6 +55,7 @@ function DashboardFilters() {
             value={project}
             onChange={handleChange}
             label="Project"
+            size='medium'
           >
             <MenuItem value="0">All Projects</MenuItem>
             <MenuItem value="1">DB Web</MenuItem>
@@ -103,6 +103,8 @@ function DashboardFilters() {
             }
           />
         </LocalizationProvider>
+
+        <Button size="large" color='info' sx={{color: 'white'}}>Search</Button>
       </Box>
     </FilterWrapper>
   );
