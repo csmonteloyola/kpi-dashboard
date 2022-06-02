@@ -53,16 +53,12 @@ const routes: RouteObject[] = [
   {
     path: '/',
     element: (
-      <SidebarLayout />
+      <BaseLayout />
     ),
     children: [
       {
         path: '',
         element: <Overview />
-      },
-      {
-        path: '/content/services',
-        element: <Services />
       },
       {
         path: 'overview',
@@ -106,6 +102,27 @@ const routes: RouteObject[] = [
       {
         path: '*',
         element: <Status404 />
+      },
+    ]
+  },
+  {
+    path: '/content',
+    element: (
+      <SidebarLayout />
+    ),
+    children: [
+      {
+        path: '',
+        element: (
+          <Navigate 
+            to="/content"
+            replace
+          />
+        )
+      },
+      {
+        path: '/content/services',
+        element: <Services />
       },
     ]
   },
