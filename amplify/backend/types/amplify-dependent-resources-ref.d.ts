@@ -1,6 +1,18 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "KpiHandler": {
+        "fnGithub": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "fnCollectGithub": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        },
+        "fnCollectGithubCommits": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
@@ -8,7 +20,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "api625feaa3": {
+        "apiGithub": {
             "RootUrl": "string",
             "ApiName": "string",
             "ApiId": "string"

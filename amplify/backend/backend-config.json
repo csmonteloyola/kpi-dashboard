@@ -1,19 +1,29 @@
 {
   "function": {
-    "KpiHandler": {
+    "fnGithub": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "fnCollectGithub": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "fnCollectGithubCommits": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "api": {
-    "api625feaa3": {
+    "apiGithub": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "KpiHandler",
+          "resourceName": "fnGithub",
           "attributes": [
             "Name",
             "Arn"

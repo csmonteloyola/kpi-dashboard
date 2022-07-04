@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"8.2.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"8.5.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "KpiHandler",
+            "fnGithub",
             {
               "Fn::Join": [
                 "",
                 [
-                  "KpiHandler",
+                  "fnGithub",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "kpidashboardLambdaRole422a6eba",
+            "kpidashboardLambdaRole21e0a47d",
             {
               "Fn::Join": [
                 "",
                 [
-                  "kpidashboardLambdaRole422a6eba",
+                  "kpidashboardLambdaRole21e0a47d",
                   "-",
                   {
                     "Ref": "env"

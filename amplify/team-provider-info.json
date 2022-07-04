@@ -12,16 +12,20 @@
       "AmplifyAppId": "d3jyiupcxfjb2"
     },
     "categories": {
-      "function": {
-        "KpiHandler": {
-          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
-          "s3Key": "amplify-builds/KpiHandler-504f543634317463646f-build.zip"
-        }
-      },
       "hosting": {
         "amplifyhosting": {
           "appId": "d3jyiupcxfjb2",
           "type": "manual"
+        }
+      },
+      "function": {
+        "fnGithub": {
+          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
+          "s3Key": "amplify-builds/fnGithub-684d68726b395a63414c-build.zip"
+        },
+        "fnCollectGithub": {
+          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
+          "s3Key": "amplify-builds/fnCollectGithub-644371736c4b736d3854-build.zip"
         }
       }
     }

@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/kpis/{kpiname}": {
-      "name": "/kpis/{kpiname}",
-      "lambdaFunction": "KpiHandler",
+    "/github": {
+      "name": "/github",
+      "lambdaFunction": "fnCollectGithub",
       "permissions": {
         "setting": "open"
       }
