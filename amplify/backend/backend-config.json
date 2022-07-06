@@ -1,10 +1,5 @@
 {
   "function": {
-    "fnGithub": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "fnCollectGithub": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -14,24 +9,14 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    }
-  },
-  "api": {
-    "apiGithub": {
-      "service": "API Gateway",
+    },
+    "fnCollectGithubCommitsHistory": {
+      "build": true,
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "fnGithub",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
+      "service": "Lambda"
     }
   },
+  "api": {},
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",

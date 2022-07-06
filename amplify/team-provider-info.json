@@ -19,13 +19,13 @@
         }
       },
       "function": {
-        "fnGithub": {
-          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
-          "s3Key": "amplify-builds/fnGithub-684d68726b395a63414c-build.zip"
-        },
         "fnCollectGithub": {
           "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
-          "s3Key": "amplify-builds/fnCollectGithub-644371736c4b736d3854-build.zip"
+          "s3Key": "amplify-builds/fnCollectGithub-2b412f596b506861442b-build.zip"
+        },
+        "fnCollectGithubCommits": {
+          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
+          "s3Key": "amplify-builds/fnCollectGithubCommits-4738567a4931596c7257-build.zip"
         }
       }
     }
