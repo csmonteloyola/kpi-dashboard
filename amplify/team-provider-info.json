@@ -21,11 +21,15 @@
       "function": {
         "fnCollectGithub": {
           "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
-          "s3Key": "amplify-builds/fnCollectGithub-2b412f596b506861442b-build.zip"
+          "s3Key": "amplify-builds/fnCollectGithub-41526753704771363959-build.zip"
         },
         "fnCollectGithubCommits": {
           "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
-          "s3Key": "amplify-builds/fnCollectGithubCommits-4738567a4931596c7257-build.zip"
+          "s3Key": "amplify-builds/fnCollectGithubCommits-39395543644561494164-build.zip"
+        },
+        "fnCollectGithubCommitsHistory": {
+          "deploymentBucketName": "amplify-kpidashboard-dev-143100-deployment",
+          "s3Key": "amplify-builds/fnCollectGithubCommitsHistory-64357955626863333972-build.zip"
         }
       }
     }

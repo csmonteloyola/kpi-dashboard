@@ -1,0 +1,12 @@
+{
+  "resourceName": "tblGithubPR",
+  "tableName": "tblGithubPR",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "fnCollectGithub"
+  ]
+}

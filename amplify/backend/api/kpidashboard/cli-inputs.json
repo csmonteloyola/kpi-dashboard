@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "kpidashboard",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/i341432/Documents/GitHub/kpi-dashboard/amplify/backend/api/kpidashboard/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7,
+      "apiKeyExpirationDate": "2022-07-13T05:50:38.140Z",
+      "keyDescription": ""
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
+  }
+}

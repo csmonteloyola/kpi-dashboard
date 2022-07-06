@@ -2,7 +2,7 @@ const https = require('https');
 
 
 /**
- * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
+ * @type {import('aws-lambda').APIGatewayProxyHandler}
  */
 exports.handler = async (event) => {
   const response = await new Promise((resolve, reject) => {
