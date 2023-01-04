@@ -12,6 +12,7 @@ import {
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { EventTracker, HoverState, } from '@devexpress/dx-react-chart';
 
+import { API } from 'aws-amplify';
 import { Animation } from '@devexpress/dx-react-chart';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -158,6 +159,9 @@ const rows = [
 ];
 
 
+
+
+
 export default class DashboardKPI extends React.PureComponent <any, any> {
   constructor(props) {
     super(props);
@@ -166,6 +170,27 @@ export default class DashboardKPI extends React.PureComponent <any, any> {
       dataLine,
       dataBar
     };
+  }
+
+  componentDidMount() {
+
+    // API Gateway
+    let apiName = 'apiGithub';
+    let queryPath = '/github';
+    const myInit = { // OPTIONAL
+      headers: {}, // OPTIONAL
+      response: false, // OPTIONAL (return the entire Axios response object instead of only response.data)
+      queryStringParameters: {  // OPTIONAL
+          /* name: 'param', */
+      },
+    };
+
+    
+    // Scan DynamoDB for results
+    API.get(apiName, queryPath, myInit)
+      .then(response => {
+        console.log("A", response)
+      })
   }
 
   render() {
