@@ -41,24 +41,27 @@ exports.handler = async (event) => {
     })
   
     const query = gql`
-        {
-            search(query: "repo:cie/CloudInfraServices is:pr created:>2022-06-01", type: ISSUE, last: 100) {
-                edges {
-                node {
-                    ... on PullRequest {
-                        id
-                        url
-                        title
-                        createdAt
-                        state
-                        repository {
-                            name
-                        }
+    {
+        repository(owner: "cie", name: "CloudInfraServices") {
+          defaultBranchRef {
+            target {
+              ... on Commit {
+                history(since: "2019-11-28T00:00:00") {
+                  edges {
+                    node {
+                      committedDate
+                      commitUrl
+                      author {
+                        name
+                      }
                     }
+                  }
                 }
-                }
+              }
             }
+          }
         }
+      }
     `
   
     const data = await graphQLClient.request(query)
